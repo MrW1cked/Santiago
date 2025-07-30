@@ -37,101 +37,35 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-neutral-900`}
       >
-        <div
-          style={{
-            width: "100vw",
-            minHeight: 180,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 10,
-            pointerEvents: "none",
-          }}
-        >
+        <div className="relative w-full flex flex-col items-center pt-8 pb-4 px-4 sm:px-8 z-10">
           <img
             src="/Title.png"
             alt="Título"
-            style={{
-              marginTop: 24,
-              maxWidth: "90vw",
-              height: "auto",
-              pointerEvents: "auto",
-              display: "block",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
+            className="w-full max-w-xs sm:max-w-md h-auto mx-auto select-none pointer-events-auto"
           />
-          <h1
-            style={{
-              marginTop: 12,
-              fontSize: 32,
-              fontWeight: 700,
-              letterSpacing: 1,
-              textAlign: "center",
-              userSelect: "none",
-              pointerEvents: "auto",
-              display: "block",
-              marginLeft: "auto",
-              marginRight: "auto",
-              background: "none",
-              WebkitBackgroundClip: "unset",
-              WebkitTextFillColor: "unset",
-              backgroundClip: "unset",
-            }}
-          >
+          <h1 className="mt-3 text-2xl sm:text-4xl font-bold tracking-wide text-center select-none pointer-events-auto">
             Olá, eu sou o<br />
-            <span style={{ display: "block", marginTop: 8 }}>
+            <span className="block mt-2">
               {"SANTIAGO MAGALHÃES!".split("").map((char, idx) => (
                 <span
                   key={idx}
                   style={{
                     color: COLORS[idx % COLORS.length],
-                    fontSize: 36,
-                    fontWeight: 900,
-                    letterSpacing: 2,
-                    textTransform: "uppercase",
                   }}
+                  className="text-3xl sm:text-5xl font-extrabold uppercase tracking-wider"
                 >
-                  {char === " " ? "\u00A0" : char}
+                  {char}
                 </span>
               ))}
             </span>
           </h1>
-          <img
-            src="/Santiago.jpeg"
-            alt="Santiago Magalhães"
-            style={{
-              marginTop: 16,
-              maxWidth: 340,
-              width: "100%",
-              borderRadius: 24,
-              boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
-              display: "block",
-              marginLeft: "auto",
-              marginRight: "auto",
-              pointerEvents: "auto",
-            }}
-          />
         </div>
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            width: "100vw",
-            height: "100vh",
-            zIndex: -2,
-            background: "#eaf6ff", // azul super claro
-            pointerEvents: "none",
-          }}
-        />
+        <main className="w-full max-w-screen-md mx-auto px-4 sm:px-8 pt-4 pb-8">
+          {children}
+        </main>
         <PuzzleBackground />
-        {children}
       </body>
     </html>
   );
