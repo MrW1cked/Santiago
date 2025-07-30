@@ -63,7 +63,7 @@ export default function PuzzleBackground() {
       };
     })
   );
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number>(performance.now());
 
   useEffect(() => {
